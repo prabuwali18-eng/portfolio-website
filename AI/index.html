@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen B Wali | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #212529;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: #ff6b35;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 10% 3rem 10%;
+            min-height: 80vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: #212529;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background-color: #ff6b35;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, #212529 0%, #343a40 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-top: 8rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content h1 span {
+            color: #ff6b35;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #adb5bd;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .intro-text {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #dee2e6;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid #ff6b35;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff6b35;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e0531f;
+        }
+
+        /* Education & Hobbies Grid */
+        .info-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-list {
+            list-style: none;
+        }
+
+        .hobby-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid #ff6b35;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Achievements */
+        .achieve-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .achieve-list li {
+            background: #fff;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 5px solid #ff6b35;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #212529;
+            color: #fff;
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: #fff;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-details p {
+            margin: 1rem 0;
+        }
+
+        .contact-details a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 6rem;
+            }
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+            }
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">PBW</a>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#about">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Praveen B Wali</span></h1>
+            <div class="tagline">Computer Science Student</div>
+            <p class="intro-text">
+                Hello! I am a passionate engineering student currently pursuing my <strong>B.Tech in Artificial Intelligence and Data Science</strong> (2nd Semester) at Reva University, Bangalore. I completed my PUC schooling in Bagalkot and am eager to leverage technology to build innovative solutions.
+            </p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <div class="hero-image">
+            <img src="profile.jpg" alt="Praveen B Wali Profile Photo">
+        </div>
+    </section>
+
+    <section id="about" style="background-color: #f1f3f5;">
+        <h2 class="section-title">Education & Personal Interests</h2>
+        <div class="info-container">
+            <div>
+                <div class="card">
+                    <h3>B.Tech in Artificial Intelligence and Data Science</h3>
+                    <p><strong>University:</strong> Reva University, Bangalore (560064)</p>
+                    <p><strong>Current Status:</strong> 2nd Semester</p>
+                </div>
+                <div class="card">
+                    <h3>Pre-University Course (PUC)</h3>
+                    <p><strong>College:</strong> Bapuji Independent PU College, Bagalkot</p>
+                </div>
+            </div>
+            <div>
+                <div class="card">
+                    <h3>Hobbies</h3>
+                    <ul class="hobby-list">
+                        <li>🏏 Cricket</li>
+                        <li>🤼 Kabaddi</li>
+                        <li>🎬 Watching Movies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical & Soft Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">Python Programming</div>
+            <div class="skill-card">Basic C Programming</div>
+            <div class="skill-card">Effective Communication</div>
+        </div>
+    </section>
+
+    <section id="projects" style="background-color: #f1f3f5;">
+        <h2 class="section-title">Academic Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>2D Graphics Editor</h3>
+                <p>A menu-driven graphics editor interface engineered using C programming principles to handle 2D assets and renders.</p>
+            </div>
+            <div class="project-card">
+                <h3>Cybercrime Report Portal</h3>
+                <p>An conceptual structure and reporting implementation framework optimized for mapping out cybercrime issues safely.</p>
+            </div>
+            <div class="project-card">
+                <h3>Automated Fire Fighting System</h3>
+                <p>An intelligent safety framework integrated seamlessly using core IoT hardware components to respond to localized fire threats.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2 class="section-title">Achievements & Certifications</h2>
+        <ul class="achieve-list">
+            <li>📜 IBM Skilled Build Online Course & Certificate</li>
+            <li>📜 Instagram Design System Online Subject & Course</li>
+            <li>📜 Wadhwani Foundation Professional Certification</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Connect With Me</h2>
+        <p>Feel free to reach out for assignments, collaborations, or inquiries!</p>
+        <div class="contact-details">
+            <p><strong>Email:</strong> <a href="mailto:prabuwali18@gmail.com">prabuwali18@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919591025494">+91 9591025494</a></p>
+            <p style="margin-top: 3rem; font-size: 0.9rem; color: #6c757d;">&copy; 2026 Praveen B Wali. All Rights Reserved.</p>
+        </div>
+    </section>
+
+</body>
+</html>
